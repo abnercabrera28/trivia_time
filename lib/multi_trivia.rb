@@ -2,7 +2,11 @@
 
 require_relative "multi_trivia/version"
 
-module MultiTrivia
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "pry"
+require "httparty"
+require "htmlentities"
+require "tty-prompt"
+
+require_relative "./multi_trivia/api"
+require_relative "./multi_trivia/cli"
+require_relative "./multi_trivia/trivia_info"
