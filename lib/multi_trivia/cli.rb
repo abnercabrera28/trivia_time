@@ -3,13 +3,7 @@ class Trivia::CLI
     def run
         cheers
         Trivia::API.new.get_trivia
-        #cats
         new_question
-        #Trivia::Info.select_cat
-        #binding.pry
-        #Trivia::Info.category_list
-        #binding.pry
-        #start   
     end
     
     def cheers
