@@ -9,31 +9,8 @@ class Trivia::CLI
     def cheers
         puts "Welcome to The Greatest Trivia Show!!!"
     end
-    
-    
-    # def one_question
-    #     Trivia::Info.all.each do |object|    
-    #         puts HTMLEntities.new.decode object.question
-            
-    #         prompt = TTY::Prompt.new
-    
-    #         choice = prompt.select("True or False?") do |menu|
-    #             menu.choice "True"
-    #             menu.choice "False"
-    #         end
-        
-    #         if choice == object.correct_answer
-    #             puts "Correct!"
-    #             continue
-    #         else 
-    #             puts "No, it's #{object.correct_answer}!"
-    #             continue
-    #         end
-    #     end
-    # end
 
-    def new_question
-        
+    def new_question   
         prompt = TTY::Prompt.new
 
         choices = Trivia::Info.category_list
@@ -47,19 +24,18 @@ class Trivia::CLI
 
         puts HTMLEntities.new.decode gory.question
         
-            choice_a = prompt.select("True or False?") do |menu|
-                menu.choice "True"
-                menu.choice "False"
-            end
+        choice_a = prompt.select("True or False?") do |menu|
+            menu.choice "True"
+            menu.choice "False"
+        end
         
-            if choice_a == gory.correct_answer
-                puts "Correct!"
-                continue
-            else 
-                puts "No, it's #{gory.correct_answer}!"
-                continue
-            end
-        
+        if choice_a == gory.correct_answer
+            puts "Correct!"
+            continue
+        else 
+            puts "No, it's #{gory.correct_answer}!"
+            continue
+        end    
     end
     
     def continue
@@ -77,8 +53,7 @@ class Trivia::CLI
             new_question
         else 
             goodbye
-        end
-        
+        end     
     end
     
     def goodbye
@@ -86,21 +61,6 @@ class Trivia::CLI
         puts "Thanks for playing!"
         puts "-------------------"
         exit
-    end
-    
-    #display category list
-    #get to a question within that category
-
-    def cats
-        prompt = TTY::Prompt.new
-
-        choices = Trivia::Info.category_list
-    
-        choice = prompt.select("Choose a category", choices) do |menu|
-        end
-
-        Trivia::Info.find_cat(choice)
-
     end
 
 end
