@@ -14,14 +14,14 @@ class Trivia::Info
         @@all
     end
 
-    def self.question_list
+    def self.category_array
         self.all.map do |object|
-            HTMLEntities.new.decode "#{object.category}"
+            "#{object.category}"
         end
     end
 
     def self.category_list
-        return self.question_list.uniq
+        self.category_array.uniq
     end
 
 end
