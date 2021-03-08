@@ -4,6 +4,8 @@ class Trivia::CLI
         cheers
         sleep 1.5
         Trivia::API.new.get_trivia
+        @total = 0
+        @correct = 0
         new_question
     end
     
@@ -17,7 +19,9 @@ class Trivia::CLI
         puts ""
     end
 
-    def new_question 
+    def new_question
+        @total += 1
+        
         prompt = TTY::Prompt.new
 
         choices = Trivia::Info.category_list
@@ -38,6 +42,7 @@ class Trivia::CLI
         end
         
         if choice_a == gory.correct_answer
+            @correct += 1
             puts ""
             puts "-------------------"
             puts ""
@@ -53,7 +58,7 @@ class Trivia::CLI
             puts ""
             continue
             puts ""
-        end    
+        end  
     end
     
     def continue
@@ -78,6 +83,8 @@ class Trivia::CLI
     end
     
     def goodbye
+        puts "You got #{@correct} out of #{@total} right!"
+        puts ""
         puts "-------------------"
         puts ""
         puts "Thanks for playing!"
