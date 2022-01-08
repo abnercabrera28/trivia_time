@@ -1,6 +1,6 @@
 # Trivia Game
 
-Trivia Game is a program that allows users to answer true or false questions based on one of the many categories they choose from a list. All trivia questions and answers are generated from https://opentdb.com/.
+Trivia Game is a CLI application that allows users to answer true or false questions based on the many categories they choose from a list. Questions and answers come from a trivia API. Developed using Ruby. All trivia questions and answers are generated from https://opentdb.com/.
 
 ## Usage
 
